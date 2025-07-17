@@ -3,19 +3,17 @@ import TaskModel from '../models/tasks.js'
 const TasksController = {
     create: async (req, res) => {
         try {
-            //const {date, priority, task, state} = req.body;
-            console.log(req.body);
-            //console.log(date, priority, task, state);
+            const {date, priority, task, state} = req.body;
             const newTask = new TaskModel({
                 date: req.body.date,
-                priority:req.body.priority,
-                task:req.body.task,
-                state:req.body.state,
+                priority: req.body.priority,
+                task: req.body.task,
+                state: req.body.state,
             });
             console.log(newTask);
             const TaskCreated = await newTask.save();
             res.status(201).json({allOK:true, message:'Task created successfully!',  data: TaskCreated});
-        } catch (error) {
+        }catch (error) {
             res.status(500).json({allOK:false, message:'Error creating Task',  data: error.message});
         }
     },

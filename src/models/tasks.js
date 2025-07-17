@@ -2,21 +2,17 @@ import { Schema, model } from "mongoose";
 
 const taskSchema = new Schema({
     date:{
-        Type: String
+        type: String
     },
-
     priority:{
-        Type: String
+        type: String
     },
-
-    task:{
-        Type: String
+     task:{
+        type: String
     },
-
     state:{
-        Type: String
+        type: String
     },
-
 },{versionKey:false, timestamps:true});
 
 export default model('Task', taskSchema);
